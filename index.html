@@ -1,26 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mitakshara ❤️</title>
 
 <style>
 body {
-    text-align: center;
+    margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #ff758c, #ff7eb3);
-    margin-top: 100px;
+    background: linear-gradient(to right, #ff4e50, #ff758c);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
     overflow: hidden;
 }
 
-h1, h2, h3 {
+h1 {
+    font-size: 11vw;
     color: white;
+    margin: 10px;
+}
+
+h2 {
+    font-size: 8vw;
+    color: white;
+    margin: 20px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;  /* THIS MAKES THEM UP & DOWN */
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
 }
 
 button {
-    padding: 15px 30px;
-    font-size: 20px;
+    padding: 15px 40px;
+    font-size: 6vw;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     cursor: pointer;
     transition: 0.3s;
 }
@@ -33,29 +57,20 @@ button {
 #noBtn {
     background-color: white;
     color: black;
-    position: absolute;
-}
-
-.heart {
-    position: fixed;
-    color: white;
-    animation: float 5s linear infinite;
-}
-
-@keyframes float {
-    from { transform: translateY(0); }
-    to { transform: translateY(-800px); }
+    position: relative;
 }
 </style>
 </head>
 
 <body>
 
-<h1>Mitakshara 💖</h1>
+<h1>Mitakshara Baby 💖</h1>
 <h2>Will You Be My Valentine? 🥺❤️</h2>
 
-<button id="yesBtn" onclick="yesClicked()">Yes ❤️</button>
-<button id="noBtn" onclick="moveButton()">No 😢</button>
+<div class="buttons">
+    <button id="yesBtn" onclick="yesClicked()">Yes ❤️</button>
+    <button id="noBtn" onclick="moveButton()">No 😢</button>
+</div>
 
 <script>
 let noClickCount = 0;
@@ -66,8 +81,10 @@ function moveButton() {
     const button = document.getElementById("noBtn");
     const yesButton = document.getElementById("yesBtn");
 
-    let x = Math.random() * (window.innerWidth - 100);
-    let y = Math.random() * (window.innerHeight - 50);
+    button.style.position = "absolute";
+
+    let x = Math.random() * (window.innerWidth - 150);
+    let y = Math.random() * (window.innerHeight - 80);
 
     button.style.left = x + "px";
     button.style.top = y + "px";
@@ -75,37 +92,26 @@ function moveButton() {
     yesButton.style.transform = "scale(" + (1 + noClickCount * 0.2) + ")";
 
     if(noClickCount == 1){
-        alert("Mitakshara... are you sure? 🥺");
+        alert("Mitakshara please think again 🥺");
     }
     else if(noClickCount == 2){
-        alert("Think again please 😭❤️");
+        alert("I’ll be sad 😭❤️");
     }
     else if(noClickCount == 3){
-        alert("I won't give up that easily 😏💘");
+        alert("You can't escape my love 😏💘");
     }
 }
 
 function yesClicked(){
     document.body.innerHTML = `
-        <h1>Yayyyyy Mitakshara!!! 💖😍</h1>
-        <h2>You just made me the happiest person alive 🥺❤️</h2>
-        <h3>Forever & Always 💍✨</h3>
+        <div style="text-align:center;">
+            <h1 style="font-size:11vw; color:white;">YAYYY MITAKSHARA 💖😍</h1>
+            <h2 style="font-size:8vw; color:white;">You made me the happiest person alive 🥺❤️</h2>
+            <h3 style="color:white;">Forever & Always 💍✨</h3>
+        </div>
     `;
 }
-
-setInterval(() => {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML = "💖";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = Math.random() * 20 + 20 + "px";
-    document.body.appendChild(heart);
-
-    setTimeout(() => {
-        heart.remove();
-    }, 5000);
-}, 300);
 </script>
 
 </body>
-  </html>
+</html>
