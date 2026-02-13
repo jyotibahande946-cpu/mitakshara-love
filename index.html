@@ -1,19 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&display=swap" rel="stylesheet">
-
-<title>Mitakshara ❤️</title>
+<title>Mitakshara Valentine ❤️</title>
 
 <style>
+/* Reset margin/padding */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to right, #ff4e50, #ff758c);
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,34 +21,32 @@ body {
 }
 
 h1 {
-    font-size: 13vw;   /* BIG but safe */
+    font-size: 6vw;  /* Medium size, responsive */
     color: white;
-    font-weight: 900;
-    margin: 5px;
+    margin-bottom: 1vh;
 }
 
 h2 {
-    font-size: 9vw;   /* Big but fits */
+    font-size: 4.5vw; /* Medium size, responsive */
     color: white;
-    font-weight: 700;
-    margin: 10px;
+    margin-bottom: 5vh;
 }
 
 .buttons {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 20px;
+    flex-direction: column; /* Up and down */
+    gap: 3vh;
+    width: 60%; /* Buttons width fixed for mobile & PC */
+    max-width: 300px;
 }
 
 button {
-    padding: 15px 50px;
-    font-size: 6vw;   /* Good size */
+    font-size: 4vw;  /* Medium size */
+    padding: 12px;
+    border-radius: 12px;
     border: none;
-    border-radius: 20px;
     cursor: pointer;
-    font-weight: 700;
-    transition: 0.3s;
+    font-weight: bold;
 }
 
 #yesBtn {
@@ -61,7 +57,6 @@ button {
 #noBtn {
     background-color: white;
     color: black;
-    position: relative;
 }
 </style>
 </head>
@@ -69,38 +64,31 @@ button {
 <body>
 
 <h1>Mitakshara Baby 💖</h1>
-<h2>Will You Be My Valentine? 🥺❤️</h2>
+<h2>Will You Be My Valentine? 😘</h2>
 
 <div class="buttons">
     <button id="yesBtn" onclick="yesClicked()">YES ❤️</button>
-    <button id="noBtn" onclick="moveButton()">NO 😢</button>
+    <button id="noBtn" onclick="noClicked()">NO 😜</button>
 </div>
 
 <script>
-let noClickCount = 0;
-
-function moveButton() {
-    noClickCount++;
-    const button = document.getElementById("noBtn");
-    const yesButton = document.getElementById("yesBtn");
-
-    button.style.position = "absolute";
-    let x = Math.random() * (window.innerWidth - 150);
-    let y = Math.random() * (window.innerHeight - 80);
-
-    button.style.left = x + "px";
-    button.style.top = y + "px";
-
-    yesButton.style.transform = "scale(" + (1 + noClickCount * 0.2) + ")";
-}
-
-function yesClicked(){
+function yesClicked() {
     document.body.innerHTML = `
-        <div style="text-align:center;">
-            <h1 style="font-size:13vw; color:white;">YAYYY MITAKSHARA 💖😍</h1>
-            <h2 style="font-size:8vw; color:white;">You made me the happiest person alive 🥺❤️</h2>
+        <div style="display:flex; flex-direction:column; justify-content:center; align-items:center; height:100vh; text-align:center;">
+            <h1 style="font-size:6vw; color:white;">Yayyyy Mitakshara! 💖😍</h1>
+            <h2 style="font-size:4.5vw; color:white;">You made me the happiest person alive 🥺❤️</h2>
         </div>
     `;
+}
+
+function noClicked() {
+    // Move NO button randomly
+    const btn = document.getElementById("noBtn");
+    const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+    const y = Math.random() * (window.innerHeight - btn.offsetHeight - 50);
+    btn.style.position = "absolute";
+    btn.style.left = x + "px";
+    btn.style.top = y + "px";
 }
 </script>
 
