@@ -3,13 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&display=swap" rel="stylesheet">
+
 <title>Mitakshara ❤️</title>
 
 <style>
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     background: linear-gradient(to right, #ff4e50, #ff758c);
     display: flex;
     flex-direction: column;
@@ -17,35 +20,36 @@ body {
     align-items: center;
     height: 100vh;
     text-align: center;
-    overflow: hidden;
 }
 
 h1 {
-    font-size: 11vw;
+    font-size: 15vw;   /* VERY BIG NAME */
     color: white;
+    font-weight: 900;
     margin: 10px;
 }
 
 h2 {
-    font-size: 8vw;
+    font-size: 11vw;   /* VERY BIG QUESTION */
     color: white;
+    font-weight: 700;
     margin: 20px;
 }
 
 .buttons {
     display: flex;
-    flex-direction: column;  /* THIS MAKES THEM UP & DOWN */
-    align-items: center;
-    gap: 20px;
+    flex-direction: column;
+    gap: 25px;
     margin-top: 20px;
 }
 
 button {
-    padding: 15px 40px;
-    font-size: 6vw;
+    padding: 18px 60px;
+    font-size: 8vw;   /* BIG BUTTON TEXT */
     border: none;
-    border-radius: 12px;
+    border-radius: 20px;
     cursor: pointer;
+    font-weight: 700;
     transition: 0.3s;
 }
 
@@ -68,8 +72,8 @@ button {
 <h2>Will You Be My Valentine? 🥺❤️</h2>
 
 <div class="buttons">
-    <button id="yesBtn" onclick="yesClicked()">Yes ❤️</button>
-    <button id="noBtn" onclick="moveButton()">No 😢</button>
+    <button id="yesBtn" onclick="yesClicked()">YES ❤️</button>
+    <button id="noBtn" onclick="moveButton()">NO 😢</button>
 </div>
 
 <script>
@@ -77,14 +81,12 @@ let noClickCount = 0;
 
 function moveButton() {
     noClickCount++;
-
     const button = document.getElementById("noBtn");
     const yesButton = document.getElementById("yesBtn");
 
     button.style.position = "absolute";
-
-    let x = Math.random() * (window.innerWidth - 150);
-    let y = Math.random() * (window.innerHeight - 80);
+    let x = Math.random() * (window.innerWidth - 200);
+    let y = Math.random() * (window.innerHeight - 100);
 
     button.style.left = x + "px";
     button.style.top = y + "px";
@@ -95,19 +97,15 @@ function moveButton() {
         alert("Mitakshara please think again 🥺");
     }
     else if(noClickCount == 2){
-        alert("I’ll be sad 😭❤️");
-    }
-    else if(noClickCount == 3){
-        alert("You can't escape my love 😏💘");
+        alert("I’ll be very sad 😭❤️");
     }
 }
 
 function yesClicked(){
     document.body.innerHTML = `
         <div style="text-align:center;">
-            <h1 style="font-size:11vw; color:white;">YAYYY MITAKSHARA 💖😍</h1>
-            <h2 style="font-size:8vw; color:white;">You made me the happiest person alive 🥺❤️</h2>
-            <h3 style="color:white;">Forever & Always 💍✨</h3>
+            <h1 style="font-size:15vw; color:white;">YAYYY MITAKSHARA 💖😍</h1>
+            <h2 style="font-size:10vw; color:white;">You made me the happiest person alive 🥺❤️</h2>
         </div>
     `;
 }
