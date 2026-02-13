@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mitakshara ❤️</title>
+
+<style>
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    margin-top: 100px;
+    overflow: hidden;
+}
+
+h1, h2, h3 {
+    color: white;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#yesBtn {
+    background-color: #ff2e63;
+    color: white;
+}
+
+#noBtn {
+    background-color: white;
+    color: black;
+    position: absolute;
+}
+
+.heart {
+    position: fixed;
+    color: white;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    from { transform: translateY(0); }
+    to { transform: translateY(-800px); }
+}
+</style>
+</head>
+
+<body>
+
+<h1>Mitakshara 💖</h1>
+<h2>Will You Be My Valentine? 🥺❤️</h2>
+
+<button id="yesBtn" onclick="yesClicked()">Yes ❤️</button>
+<button id="noBtn" onclick="moveButton()">No 😢</button>
+
+<script>
+let noClickCount = 0;
+
+function moveButton() {
+    noClickCount++;
+
+    const button = document.getElementById("noBtn");
+    const yesButton = document.getElementById("yesBtn");
+
+    let x = Math.random() * (window.innerWidth - 100);
+    let y = Math.random() * (window.innerHeight - 50);
+
+    button.style.left = x + "px";
+    button.style.top = y + "px";
+
+    yesButton.style.transform = "scale(" + (1 + noClickCount * 0.2) + ")";
+
+    if(noClickCount == 1){
+        alert("Mitakshara... are you sure? 🥺");
+    }
+    else if(noClickCount == 2){
+        alert("Think again please 😭❤️");
+    }
+    else if(noClickCount == 3){
+        alert("I won't give up that easily 😏💘");
+    }
+}
+
+function yesClicked(){
+    document.body.innerHTML = `
+        <h1>Yayyyyy Mitakshara!!! 💖😍</h1>
+        <h2>You just made me the happiest person alive 🥺❤️</h2>
+        <h3>Forever & Always 💍✨</h3>
+    `;
+}
+
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 20 + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}, 300);
+</script>
+
+</body>
+  </html>
